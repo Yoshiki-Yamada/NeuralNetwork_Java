@@ -1,4 +1,5 @@
 # NeuralNetworkをJavaで実装してみた
+本学の講義「人工知能」の延長
 
 ## はじめに
 NeuralNetworkの概念を勉強しながら、Javaでコードを書いていく。Javaで満足したらPythonでやってみる。  
