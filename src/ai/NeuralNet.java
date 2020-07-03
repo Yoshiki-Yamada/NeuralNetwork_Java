@@ -66,6 +66,7 @@ public class NeuralNet {
              */
             hidden[i] += b1[i];
             hidden[i] = sigmoid(hidden[i]);
+//            hidden[i] = ramp(hidden[i]);
         }
 
         /**
@@ -81,6 +82,7 @@ public class NeuralNet {
              */
             output[i] += b2[i];
             output[i] = sigmoid(output[i]);
+//            output[i] = ramp(output[i]);
         }
         return output;
     }
@@ -88,6 +90,16 @@ public class NeuralNet {
     public double sigmoid(double i) {
         double a = 1.0 / (1.0 + Math.exp(-i));
         return a;
+    }
+
+    public double ramp(double i){
+        if (i <= 0){
+            return 0;
+        }else if (i > 0){
+            return i;
+        }
+        System.out.println("error in ramp function!!");
+        return -1;
     }
 
     public void backPropagation(double teach[]) {
