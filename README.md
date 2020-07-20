@@ -6,3 +6,4 @@ NeuralNetworkの概念を勉強しながら、Javaでコードを書いていく
 
 ## 序章
 [1. 手書きの数字の判定プログラム(editing...)](a)  
+[ランプ関数の実装](https://github.com/Yoshiki-Yamada/NeuralNetwork_Java/blob/master/doc/ramp.md)  
