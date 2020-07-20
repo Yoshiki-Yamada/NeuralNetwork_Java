@@ -1,5 +1,6 @@
 package ai;
 
+import java.util.Arrays;
 import java.util.Random;
 
 public class NeuralNet {
@@ -81,9 +82,10 @@ public class NeuralNet {
              * 7
              */
             output[i] += b2[i];
-            output[i] = sigmoid(output[i]);
+//            output[i] = sigmoid(output[i]);
 //            output[i] = ramp(output[i]);
         }
+        output = softmax(output);
         return output;
     }
 
@@ -102,6 +104,21 @@ public class NeuralNet {
         return -1;
     }
 
+    public double[] softmax(double[] x){
+        double[] y = new double[x.length];
+        double sum = 0;
+
+        for (int i=0; i<x.length; i++){
+            sum += Math.exp(x[i]);
+        }
+
+        for (int i=0; i<x.length; i++){
+            y[i] = Math.exp(x[i])/sum;
+        }
+
+        return y;
+    }
+
     public void backPropagation(double teach[]) {
 
         double[] deltas = new double[N_OUTPUT];
@@ -110,7 +127,8 @@ public class NeuralNet {
          * 8
          */
         for (int j = 0; j < N_OUTPUT; j++) {
-            deltas[j] = (teach[j] - output[j]) * output[j] * (1.0 - output[j]);
+//            deltas[j] = (teach[j] - output[j]) * output[j] * (1.0 - output[j]);
+            deltas[j] = (teach[j] - output[j]);
             for (int i = 0; i < N_HIDDEN; i++) {
                 w2[i][j] += alpha * deltas[j] * hidden[i];
             }
@@ -149,14 +167,13 @@ public class NeuralNet {
         int step = 0;
         while (true) {
             double e = 0.0;
+                for (int i = 0; i < knownInputs.length; i++) {
+                    compute(knownInputs[i]);
+                    backPropagation(teach[i]);
+                    e += calcError(teach[i]);
+                }
 
-            for (int i = 0; i < knownInputs.length; i++) {
-                compute(knownInputs[i]);
-                backPropagation(teach[i]);
-                e += calcError(teach[i]);
-            }
-
-            if (step % 100 == 0) {
+            if (step % 10 == 0) {
                 System.out.println("step:" + step + ", loss=" + e);
             }
 

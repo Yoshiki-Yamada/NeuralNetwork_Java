@@ -31,9 +31,13 @@ public class CRApp {
         };
 
         //教師データ
+//        double t[][] = {
+//                {0, 0, 0, 0},
+//                {0, 0, 0, 1}
+//        };
         double t[][] = {
-                {0, 0, 0, 0},
-                {0, 0, 0, 1}
+                {0, 0, 0, 1},
+                {0, 0, 1, 0}
         };
 
         System.out.println("--学習開始--");
@@ -61,9 +65,13 @@ public class CRApp {
                 }
         };
 
+//        double expects[][] = {
+//                {0, 0, 0, 0},
+//                {0, 0, 0, 1}
+//        };
         double expects[][] = {
-                {0, 0, 0, 0},
-                {0, 0, 0, 1}
+                {0, 0, 0, 1},
+                {0, 0, 1, 0}
         };
         for (int i = 0; i < unknownInputs.length; i++) {
             double[] output = nn.compute(unknownInputs[i]);
@@ -94,6 +102,7 @@ public class CRApp {
         int v2 = (int) (a[1] + 0.5);
         int v3 = (int) (a[2] + 0.5);
         int v4 = (int) (a[3] + 0.5);
-        return v1 * 8 + v2 * 4 + v3 * 2 + v4 * 1;
+//        return v1 * 8 + v2 * 4 + v3 * 2 + v4 * 1;
+        return v1 * 3 + v2 * 2 + v3 * 1 + v4 * 0;
     }
 }
