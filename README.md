@@ -1,9 +1,6 @@
 # NeuralNetworkをJavaで実装してみた
-本学の講義「人工知能」の延長
+本学の講義「人工知能」の最終課題
 
-## はじめに
-NeuralNetworkの概念を勉強しながら、Javaでコードを書いていく。Javaで満足したらPythonでやってみる。  
-
-## 序章
-[1. 手書きの数字の判定プログラム(editing...)](a)  
+## Javaでの実装
 [ランプ関数の実装](https://github.com/Yoshiki-Yamada/NeuralNetwork_Java/blob/master/doc/ramp.md)  
+[ソフトマックス関数の実装](https://github.com/Yoshiki-Yamada/NeuralNetwork_Java/blob/master/doc/softmax.md)  
